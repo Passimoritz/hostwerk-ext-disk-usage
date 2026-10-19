@@ -1,3 +1,5 @@
+![Storage per service](banner.svg)
+
 # Storage per service
 
 How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile.

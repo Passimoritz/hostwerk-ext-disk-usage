@@ -1,3 +1,5 @@
+![Speicher je Dienst](banner.svg)
+
 # Speicher je Dienst
 
 Wie viel Platz jeder Dienst belegt – Daten, Sicherungen, Projekte – und wie voll das Laufwerk ist. Mit Kachel für die Übersicht.
