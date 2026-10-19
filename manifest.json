@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Passimoritz/hostwerk-public/main/sdk/manifest.schema.json",
+  "id": "disk-usage",
+  "color": "#b45309",
+  "name": {
+    "de": "Speicher je Dienst",
+    "en": "Storage per service"
+  },
+  "description": {
+    "de": "Wie viel Platz jeder Dienst belegt – Daten, Sicherungen, Projekte – und wie voll das Laufwerk ist. Mit Kachel für die Übersicht.",
+    "en": "How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile."
+  },
+  "permissions": [
+    "read:system"
+  ],
+  "page": {
+    "title": {
+      "de": "Speicher je Dienst",
+      "en": "Storage per service"
+    },
+    "description": {
+      "de": "Belegter Platz je Dienst und freier Platz auf dem Laufwerk.",
+      "en": "Space used per service and free space on the drive."
+    },
+    "icon": "database",
+    "file": "page/index.html"
+  },
+  "widget": {
+    "title": {
+      "de": "Speicher je Dienst",
+      "en": "Storage per service"
+    },
+    "file": "widget/index.html",
+    "size": "third"
+  },
+  "version": "1.0.0",
+  "author": "Hostwerk",
+  "homepage": "https://github.com/Passimoritz/hostwerk-ext-disk-usage",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "hostwerk": ">=2.9.0"
+}

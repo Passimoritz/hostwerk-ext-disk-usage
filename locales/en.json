@@ -1,0 +1,17 @@
+{
+  "computing": "Hostwerk is counting the sizes – one moment …",
+  "drive": "{used} of {total} used",
+  "free": "{free} free",
+  "driveTitle": "Drive",
+  "none": "No services with data yet.",
+  "hint": "As of {when} · recounted every 10 minutes",
+  "kind.minecraft": "Minecraft",
+  "kind.db": "Database",
+  "kind.app": "App",
+  "kind.web": "Web server",
+  "part.Server": "Server",
+  "part.Sicherungen": "Backups",
+  "part.Daten": "Data",
+  "part.Projekt": "Project",
+  "part.Dokumente": "Documents"
+}

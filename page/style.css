@@ -1,0 +1,6 @@
+/* Nur was Hostwerks Baukasten nicht hat: der Mengenbalken */
+.du-bar { height: 6px; border-radius: 4px; background: var(--surface-2); overflow: hidden; margin: 6px 0 4px; }
+.du-bar span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+.du-bar span.warn { background: var(--warn); }
+.du-bar span.err { background: var(--err); }
+.du-bar span.ok { background: var(--ok); }

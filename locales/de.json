@@ -1,0 +1,17 @@
+{
+  "computing": "Hostwerk zählt gerade die Größen nach – einen Moment …",
+  "drive": "{used} von {total} belegt",
+  "free": "{free} frei",
+  "driveTitle": "Laufwerk",
+  "none": "Noch keine Dienste mit Daten.",
+  "hint": "Stand {when} · wird alle 10 Minuten neu gezählt",
+  "kind.minecraft": "Minecraft",
+  "kind.db": "Datenbank",
+  "kind.app": "App",
+  "kind.web": "Webserver",
+  "part.Server": "Server",
+  "part.Sicherungen": "Sicherungen",
+  "part.Daten": "Daten",
+  "part.Projekt": "Projekt",
+  "part.Dokumente": "Dokumente"
+}
