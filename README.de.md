@@ -17,6 +17,8 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 
 ## Rechte
 
+**Wo:** System → Speicherplatz und Übersichtskachel – seit 1.4.0 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
+
 | Recht | Wofür |
 |---|---|
 | `read:system` | Speicher je Dienst und Laufwerk (nur lesen) |

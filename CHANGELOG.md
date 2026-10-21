@@ -1,3 +1,7 @@
+## 1.4.0
+
+- Lives where it belongs: System → Disk usage and the dashboard tile – no own sidebar entry any more (Hostwerk 3.0+); the full page stays under Extensions → Open and can be pinned in the sidebar settings. / Steckt jetzt dort, wo sie hingehört: System → Speicherplatz und Übersichtskachel – kein eigener Seitenleisten-Eintrag mehr (Hostwerk 3.0+); die ganze Seite bleibt unter Erweiterungen → Öffnen und lässt sich in den Seitenleisten-Einstellungen anheften.
+
 ## 1.3.0
 
 - Game servers and Docker volumes count along (Hostwerk 3.0 sends them): their own names and parts (“Docker volume”), the folder button opens the game server or the Docker app the volume belongs to. / Spiele-Server und Docker-Volumes zählen mit: eigene Namen und Teile, der Ordner-Knopf öffnet den Spiele-Server bzw. die Docker-App.

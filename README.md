@@ -17,6 +17,8 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 
 ## Permissions
 
+**Where:** System → Disk usage and the dashboard tile – no own sidebar entry since 1.4.0; the full page stays under Extensions → Open
+
 | Permission | Why |
 |---|---|
 | `read:system` | Storage per service and drive (read only) |
