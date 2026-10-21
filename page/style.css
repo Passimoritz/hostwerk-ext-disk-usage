@@ -1,6 +1,14 @@
-/* Nur was Hostwerks Baukasten nicht hat: der Mengenbalken */
-.du-bar { height: 6px; border-radius: 4px; background: var(--surface-2); overflow: hidden; margin: 6px 0 4px; }
-.du-bar span { display: block; height: 100%; background: var(--accent); border-radius: 4px; }
+/* Nur was Hostwerks Baukasten nicht hat: Mengenbalken, Verlauf, Abstände (alles aus der Design-Skala) */
+.du-bar { height: var(--sp-2); border-radius: var(--r-xs); background: var(--surface-2); overflow: hidden; margin: var(--sp-2) 0 var(--sp-1); }
+.du-bar span { display: block; height: 100%; background: var(--accent); border-radius: var(--r-xs); }
 .du-bar span.warn { background: var(--warn); }
 .du-bar span.err { background: var(--err); }
 .du-bar span.ok { background: var(--ok); }
+.du-stack { gap: var(--sp-2); }
+.du-gap { margin-bottom: var(--sp-4); }
+.du-item { align-items: flex-start; }
+.du-main { min-width: 0; }
+.du-trend { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-3); }
+.du-spark { width: calc(var(--sp-8) * 4); height: calc(var(--sp-8) + var(--sp-2)); color: var(--accent); flex: none; }
+.du-tip { margin-top: var(--sp-2); }
+.du-skel { height: calc(var(--sp-8) * 5); }

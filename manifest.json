@@ -12,7 +12,8 @@
     "en": "How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile."
   },
   "permissions": [
-    "read:system"
+    "read:system",
+    "storage"
   ],
   "page": {
     "title": {
@@ -24,7 +25,11 @@
       "en": "Space used per service and free space on the drive."
     },
     "icon": "database",
-    "file": "page/index.html"
+    "file": "page/index.html",
+    "nav": {
+      "group": "system",
+      "after": "system"
+    }
   },
   "widget": {
     "title": {
@@ -34,11 +39,16 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-disk-usage",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
-  "hostwerk": ">=2.9.0"
+  "hostwerk": ">=2.9.0",
+  "allowExtensions": {
+    "*": [
+      "tabs"
+    ]
+  }
 }

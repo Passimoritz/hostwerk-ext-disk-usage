@@ -4,15 +4,27 @@
 
 How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile.
 
-An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (SDK 2.4) – page in the sidebar and a dashboard tile, in Hostwerk's own design, German and English.
+An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension – page in the sidebar (next to *System*) and a dashboard tile, in Hostwerk's own design, German and English.
+
+- Every service with its size, its share of the space of all services and its parts (server, backups, data …)
+- Drive bar with warning levels from 80 % and 90 %
+- **History and forecast:** the drive usage is noted once an hour (90 days, in the extension's own storage) – “+1.2 GB per day · at this rate full in about 40 days”
+- **Free up space:** services whose backups take a lot of room and, on a full drive, Hostwerk's cache – each with a button that opens the right place
+- A click on the folder button opens the service's files (Minecraft: the *Files* tab)
+- Ready for game servers and Docker volumes as soon as Hostwerk counts them
+- Bars readable for screen readers (`role="meter"`), times and numbers in Hostwerk's language
+- Loading errors show a message with *Try again*; nothing is recounted while the page is hidden
 
 ## Permissions
 
 | Permission | Why |
 |---|---|
 | `read:system` | Storage per service and drive (read only) |
+| `storage` | Keeps the history for the forecast |
 
-Read only – it changes nothing.
+It changes nothing on its own – the buttons only open Hostwerk areas.
+
+Other extensions may add tabs to its page (`allowExtensions`).
 
 ## Develop
 

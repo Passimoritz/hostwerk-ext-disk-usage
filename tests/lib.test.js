@@ -10,3 +10,36 @@ test('Anteile: größter Dienst = voller Balken, leere Dienste weg', () => {
 test('Laufwerk mit Warnstufen', () => {
   assert.strictEqual(D.disk({ total: 100, free: 50 }).level, 'ok'); assert.strictEqual(D.disk({ total: 100, free: 15 }).level, 'warn'); assert.strictEqual(D.disk({ total: 100, free: 5 }).level, 'err'); assert.strictEqual(D.disk(null), null);
 });
+
+test('Prozent in Hostwerk-Sprache', () => { assert.strictEqual(D.percent(12.5), '12,5 %'); assert.strictEqual(D.percent(12.5, 'en'), '12.5 %'); });
+test('Verlauf: höchstens ein Punkt pro Stunde, alte fallen weg', () => {
+  const now = 100 * D.DAY;
+  let h = D.record([], { used: 10, total: 100 }, now);
+  h = D.record(h, { used: 11, total: 100 }, now + 60000);
+  assert.strictEqual(h.length, 1);
+  h = D.record(h, { used: 12, total: 100 }, now + 3600000);
+  assert.strictEqual(h.length, 2);
+  assert.strictEqual(D.record([{ t: now - 91 * D.DAY, used: 1, total: 2 }], null, now).length, 0);
+});
+test('Prognose: voll in X Tagen, sonst kein Wachstum oder zu wenig Verlauf', () => {
+  const G = 1073741824; const now = 50 * D.DAY;
+  const grow = [0, 1, 2, 3].map((i) => ({ t: now - (3 - i) * D.DAY, used: 100 * G + i * G, total: 200 * G }));
+  const f = D.forecast(grow, now);
+  assert.strictEqual(Math.round(f.perDay / G), 1); assert.strictEqual(Math.round(f.days), 97);
+  assert.strictEqual(D.forecast(grow.map((p) => ({ ...p, used: 5 * G })), now).days, null);
+  assert.strictEqual(D.forecast(grow.slice(0, 1), now), null);
+});
+test('Klickziele je Dienst', () => {
+  assert.strictEqual(D.route({ kind: 'minecraft', id: 'survival' }), '/mc/survival/files');
+  assert.strictEqual(D.route({ kind: 'minecraft', id: 'survival' }, 'Sicherungen'), '/mc/survival/backups');
+  assert.strictEqual(D.route({ kind: 'db', id: 'x' }, 'Sicherungen'), '/sicherungen');
+  assert.strictEqual(D.route({ kind: 'web', id: '../x' }), '/web');
+  assert.strictEqual(D.route({ kind: 'game', id: 'v' }), '/ext/game-servers');
+});
+test('Aufräum-Vorschläge: große Sicherungen und volles Laufwerk', () => {
+  const G = 1073741824;
+  const s = [{ kind: 'minecraft', id: 'a', name: 'A', bytes: 5 * G, parts: [{ label: 'Server', bytes: 2 * G }, { label: 'Sicherungen', bytes: 3 * G }] }, { kind: 'minecraft', id: 'b', name: 'B', bytes: 10 * G, parts: [{ label: 'Sicherungen', bytes: 2 * G }] }];
+  assert.deepStrictEqual(D.tips(s, { pct: 50 }).map((x) => x.name), ['A']); // B: Sicherungen nur 20 %
+  assert.deepStrictEqual(D.tips([], { pct: 85 }).map((x) => x.kind), ['cache']);
+  assert.deepStrictEqual(D.tips([{ name: 'C', bytes: 10 * G, parts: [{ label: 'Sicherungen', bytes: 2 * G }] }], null), []);
+});
