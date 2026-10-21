@@ -52,8 +52,9 @@
       case 'web': return safe ? `/web/${id}` : '/web';
       case 'app': return safe ? `/apps/${id}` : '/projects';
       case 'db': return backups ? '/sicherungen' : safe ? `/dbs/${id}` : '/dbs';
-      case 'game': return '/ext/game-servers';
-      case 'docker': return '/apps';
+      // Spiele-Server (Erweiterung „Spiele-Server“) und Docker-Volumes – seit Hostwerk 3.0 in der Zählung
+      case 'game': return safe ? `/spiele/${id}` : '/ext/game-servers';
+      case 'docker': return s.app && /^[\w-]+$/.test(String(s.app)) ? `/apps/${s.app}` : '/apps';
       default: return '/files';
     }
   }
@@ -73,6 +74,19 @@
     return out.slice(0, 4);
   }
 
-  const api = { bytes, percent, shares, disk, record, forecast, route, tips, DAY };
+  /** Reihenfolge der Arten für den Filter: Dienste vor Docker-Volumes. */
+  const KINDS = ['minecraft', 'game', 'web', 'db', 'app', 'docker', 'mail'];
+  /**
+   * Belegung je Art (Minecraft, Spiele-Server, Webserver, Datenbank, App, Docker …) für den Filter über der Liste:
+   * [{ kind, bytes, count }] in fester Reihenfolge, unbekannte Arten hinten, leere weg.
+   */
+  function byKind(services) {
+    const m = new Map();
+    for (const s of services || []) { if (!s || !(s.bytes > 0)) continue; const k = String(s.kind || 'other'); const e = m.get(k) || { kind: k, bytes: 0, count: 0 }; e.bytes += s.bytes; e.count++; m.set(k, e); }
+    const rank = (k) => { const i = KINDS.indexOf(k); return i < 0 ? KINDS.length : i; };
+    return [...m.values()].sort((a, b) => rank(a.kind) - rank(b.kind) || b.bytes - a.bytes);
+  }
+
+  const api = { bytes, percent, shares, disk, record, forecast, route, tips, byKind, KINDS, DAY };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.Disk = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -11,7 +11,7 @@ Eine offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erwei
 - **Verlauf und Prognose:** Die Belegung wird stündlich notiert (90 Tage, im Speicher der Erweiterung) – „+1,2 GB pro Tag · bei diesem Tempo voll in etwa 40 Tagen“
 - **Platz schaffen:** Dienste, deren Sicherungen viel Platz brauchen, und bei vollem Laufwerk Hostwerks Zwischenspeicher – jeweils mit Knopf, der die richtige Stelle öffnet
 - Der Ordner-Knopf öffnet die Dateien des Dienstes (Minecraft: Reiter *Dateien*)
-- Vorbereitet für Spiele-Server und Docker-Volumes, sobald Hostwerk sie mitzählt
+- Spiele-Server und Docker-Volumes zählen mit (ab Hostwerk 3.0) – mit Filter nach Art und dem Platz je Art
 - Balken für Bildschirmleser lesbar (`role="meter"`), Uhrzeit und Zahlen in der Sprache von Hostwerk
 - Ladefehler zeigen eine Meldung mit *Erneut versuchen*; bei verstecktem Reiter wird nicht nachgezählt
 

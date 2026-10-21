@@ -34,5 +34,9 @@
   "kind.game": "Spiele-Server",
   "kind.docker": "Docker",
   "part.Spielstände": "Spielstände",
-  "part.Volumes": "Volumes"
+  "part.Volumes": "Volumes",
+  "part.Docker-Volume": "Docker-Volume",
+  "kind.mail": "Mailserver",
+  "all": "Alle",
+  "filterLabel": "Nach Art filtern"
 }

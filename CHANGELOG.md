@@ -1,3 +1,8 @@
+## 1.3.0
+
+- Game servers and Docker volumes count along (Hostwerk 3.0 sends them): their own names and parts (“Docker volume”), the folder button opens the game server or the Docker app the volume belongs to. / Spiele-Server und Docker-Volumes zählen mit: eigene Namen und Teile, der Ordner-Knopf öffnet den Spiele-Server bzw. die Docker-App.
+- Filter by kind above the list with the space per kind (Minecraft, game servers, Docker …). / Filter nach Art über der Liste mit dem Platz je Art.
+
 ## 1.2.0
 
 - History and forecast: drive usage noted hourly, growth per day and “full in about X days”. / Verlauf und Prognose: Belegung stündlich notiert, Zuwachs pro Tag und „voll in etwa X Tagen“.

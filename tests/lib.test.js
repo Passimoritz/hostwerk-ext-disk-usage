@@ -34,7 +34,10 @@ test('Klickziele je Dienst', () => {
   assert.strictEqual(D.route({ kind: 'minecraft', id: 'survival' }, 'Sicherungen'), '/mc/survival/backups');
   assert.strictEqual(D.route({ kind: 'db', id: 'x' }, 'Sicherungen'), '/sicherungen');
   assert.strictEqual(D.route({ kind: 'web', id: '../x' }), '/web');
-  assert.strictEqual(D.route({ kind: 'game', id: 'v' }), '/ext/game-servers');
+  assert.strictEqual(D.route({ kind: 'game', id: 'v' }), '/spiele/v');
+  assert.strictEqual(D.route({ kind: 'game', id: '../x' }), '/ext/game-servers');
+  assert.strictEqual(D.route({ kind: 'docker', id: 'hw-redis', app: 'redis1' }), '/apps/redis1');
+  assert.strictEqual(D.route({ kind: 'docker', id: 'loose-volume' }), '/apps');
 });
 test('Aufräum-Vorschläge: große Sicherungen und volles Laufwerk', () => {
   const G = 1073741824;
@@ -42,4 +45,17 @@ test('Aufräum-Vorschläge: große Sicherungen und volles Laufwerk', () => {
   assert.deepStrictEqual(D.tips(s, { pct: 50 }).map((x) => x.name), ['A']); // B: Sicherungen nur 20 %
   assert.deepStrictEqual(D.tips([], { pct: 85 }).map((x) => x.kind), ['cache']);
   assert.deepStrictEqual(D.tips([{ name: 'C', bytes: 10 * G, parts: [{ label: 'Sicherungen', bytes: 2 * G }] }], null), []);
+});
+
+test('Belegung je Art für den Filter: feste Reihenfolge, Spiele-Server und Docker dabei, leere weg', () => {
+  const k = D.byKind([{ kind: 'docker', bytes: 5 }, { kind: 'minecraft', bytes: 3 }, { kind: 'docker', bytes: 1 }, { kind: 'game', bytes: 7 }, { kind: 'neu', bytes: 1 }, { kind: 'web', bytes: 0 }]);
+  assert.deepStrictEqual(k.map((x) => [x.kind, x.bytes, x.count]), [['minecraft', 3, 1], ['game', 7, 1], ['docker', 6, 2], ['neu', 1, 1]]);
+  assert.deepStrictEqual(D.byKind(null), []);
+});
+test('jede Art hat einen Namen in beiden Sprachen, auch die Teile der Docker-Zählung', () => {
+  for (const f of ['de', 'en']) {
+    const L = require(`../locales/${f}.json`);
+    for (const kind of D.KINDS) assert.ok(L[`kind.${kind}`], `${f}: kind.${kind}`);
+    for (const p of ['Server', 'Sicherungen', 'Daten', 'Projekt', 'Dokumente', 'Docker-Volume']) assert.ok(L[`part.${p}`], `${f}: part.${p}`);
+  }
 });

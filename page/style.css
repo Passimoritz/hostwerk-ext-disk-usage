@@ -11,4 +11,6 @@
 .du-trend { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-3); }
 .du-spark { width: calc(var(--sp-8) * 4); height: calc(var(--sp-8) + var(--sp-2)); color: var(--accent); flex: none; }
 .du-tip { margin-top: var(--sp-2); }
+.du-kinds { flex-wrap: wrap; }
+.du-kinds button { min-height: var(--sp-6); }
 .du-skel { height: calc(var(--sp-8) * 5); }
