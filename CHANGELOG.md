@@ -1,3 +1,7 @@
+## 1.5.0
+
+- While Hostwerk counts the sizes, the page shows Hostwerk’s loading line instead of a lone line of text; the list rises one after another the first time (SDK 3.6). / Während Hostwerk die Größen zählt, zeigt die Seite Hostwerks Lade-Linie statt einer einzelnen Textzeile; die Liste erscheint beim ersten Mal nacheinander (SDK 3.6).
+
 ## 1.4.1
 
 - New animated icon and banner in the common Hostwerk style (isometric block). / Neues animiertes Symbol und Banner im gemeinsamen Hostwerk-Stil (isometrischer Block).

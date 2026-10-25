@@ -42,7 +42,7 @@ async function load() {
   clearTimeout(retryTimer);
   lastLoad = Date.now();
   let d; try { d = await Hostwerk.get('/system/disk-usage'); } catch (e) { showError(e.message); return; }
-  if (d.computing && !d.services.length) { Hostwerk.render('#app', html`<div class="muted small">${t('computing')}</div>`); retryTimer = setTimeout(() => { if (!document.hidden) load(); }, 4000); return; }
+  if (d.computing && !d.services.length) { Hostwerk.render('#app', Hostwerk.ui.loader ? Hostwerk.ui.loader({ text: t('computing') }) : html`<div class="muted small">${t('computing')}</div>`); retryTimer = setTimeout(() => { if (!document.hidden) load(); }, 4000); return; }
   const dk0 = D.disk(d.disk);
   last = { d, hist: dk0 ? await history(dk0) : [] };
   render();
@@ -51,6 +51,8 @@ async function load() {
 /** Teilname der Zählung lesbar (Server, Sicherungen, Docker-Volume …); Unbekanntes so, wie Hostwerk es schickt. */
 const partLabel = (label) => { const k = `part.${label}`; const x = t(k); return x && x !== k ? x : label; };
 
+// Liste erscheint beim ersten Mal nacheinander (SDK 3.6 – ältere Hostwerk-Versionen kennen hw-stagger nicht: ohne Bewegung)
+let firstList = true;
 function render() {
   if (!last) return;
   const { d, hist } = last;
@@ -71,8 +73,9 @@ function render() {
       <div class="du-trend"><div class="grow"><div class="small"><b>${t('trendTitle')}</b></div><div class="small ${fc && fc.days != null && fc.days < 60 ? 'c-warn' : 'muted'}">${forecastText(fc)}</div></div>${spark(fc && fc.points)}</div></div>` : ''}
     ${tips.length ? html`<div class="card card-pad du-gap"><b>${t('tipsTitle')}</b>${tips.map((x) => html`<div class="row du-tip"><span class="grow small">${x.kind === 'backups' ? t('tipBackups', { name: x.name, size: D.bytes(x.bytes, lang()) }) : t('tipCache')}</span><button class="btn sm" data-go="${x.route}">${x.kind === 'backups' ? t('tipBackupsBtn') : t('tipCacheBtn')}</button></div>`)}</div>` : ''}
     ${kinds.length > 1 ? html`<div class="seg du-gap du-kinds" role="group" aria-label="${t('filterLabel')}">${[{ kind: '', bytes: kinds.reduce((a, k) => a + k.bytes, 0) }, ...kinds].map((k) => html`<button type="button" class="${k.kind === kind ? 'on' : ''}" aria-pressed="${k.kind === kind ? 'true' : 'false'}" data-kind="${k.kind}">${k.kind ? t('kind.' + k.kind) : t('all')} · ${D.bytes(k.bytes, lang())}</button>`)}</div>` : ''}
-    <div class="card">${shown.length ? shown.map((s) => html`<div class="list-item du-item"><div class="grow du-main"><div class="row-tight"><b class="grow ellipsis">${s.name}</b><span class="small muted">${t('kind.' + s.kind)}</span><span class="small muted" title="${t('shareHint')}">${D.percent(s.pct, lang())}</span><b>${D.bytes(s.bytes, lang())}</b></div>${bar(s.bar, t('shareLabel', { name: s.name, pct: D.percent(s.pct, lang()) }))}<div class="tiny muted">${s.parts.map((p) => `${partLabel(p.label)}: ${D.bytes(p.bytes, lang())}`).join(' · ')}</div></div><button class="btn ghost sm icon" data-go="${D.route(s)}" title="${t('open', { name: s.name })}" aria-label="${t('open', { name: s.name })}">${FOLDER}</button></div>`) : html`<div class="empty"><p>${t('none')}</p></div>`}</div>
+    <div class="card${firstList && shown.length ? ' hw-stagger' : ''}">${shown.length ? shown.map((s) => html`<div class="list-item du-item"><div class="grow du-main"><div class="row-tight"><b class="grow ellipsis">${s.name}</b><span class="small muted">${t('kind.' + s.kind)}</span><span class="small muted" title="${t('shareHint')}">${D.percent(s.pct, lang())}</span><b>${D.bytes(s.bytes, lang())}</b></div>${bar(s.bar, t('shareLabel', { name: s.name, pct: D.percent(s.pct, lang()) }))}<div class="tiny muted">${s.parts.map((p) => `${partLabel(p.label)}: ${D.bytes(p.bytes, lang())}`).join(' · ')}</div></div><button class="btn ghost sm icon" data-go="${D.route(s)}" title="${t('open', { name: s.name })}" aria-label="${t('open', { name: s.name })}">${FOLDER}</button></div>`) : html`<div class="empty"><p>${t('none')}</p></div>`}</div>
     <p class="tiny muted">${t('hint', { when: d.at ? Hostwerk.fmt.time(d.at) : '–' })}</p>`);
+  if (shown.length) firstList = false;
 }
 
 document.addEventListener('click', (e) => {
