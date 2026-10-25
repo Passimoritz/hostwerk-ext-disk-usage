@@ -2,6 +2,8 @@
 
 # Storage per service
 
+> **Merged into “Drives” (extension `disk-health` 2.0):** the space per service is now the part “Used space” under System → Drives. Hostwerk installs “Drives” by itself, takes the history over and removes this extension. There are no new versions here.
+
 How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile.
 
 [Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 2.9 or newer)

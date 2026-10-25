@@ -2,6 +2,8 @@
 
 # Speicher je Dienst
 
+> **Aufgegangen in „Laufwerke“ (Erweiterung `disk-health` 2.0):** Die Belegung je Dienst ist jetzt der Teil „Belegung“ unter System → Laufwerke. Hostwerk installiert „Laufwerke“ von selbst, übernimmt den Verlauf und entfernt diese Erweiterung. Hier gibt es keine neuen Fassungen mehr.
+
 Wie viel Platz jeder Dienst belegt – Daten, Sicherungen, Projekte – und wie voll das Laufwerk ist. Mit Kachel für die Übersicht.
 
 [English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 2.9)
