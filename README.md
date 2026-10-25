@@ -4,7 +4,13 @@
 
 How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile.
 
-An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension – page in the sidebar (next to *System*) and a dashboard tile, in Hostwerk's own design, German and English.
+[Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 2.9 or newer)
+
+![Screenshot](docs/screenshot.png)
+
+## What it does
+
+A page under System → Disk usage and a dashboard tile, in Hostwerk's own design, German and English.
 
 - Every service with its size, its share of the space of all services and its parts (server, backups, data …)
 - Drive bar with warning levels from 80 % and 90 %
@@ -14,6 +20,12 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 - Game servers and Docker volumes count along (Hostwerk 3.0 and newer) – with a filter by kind and the space per kind
 - Bars readable for screen readers (`role="meter"`), times and numbers in Hostwerk's language
 - Loading errors show a message with *Try again*; nothing is recounted while the page is hidden
+
+## Install
+
+In Hostwerk: **Extensions → Discover** and click “Install”. Or manually: download the zip from the [latest release](../../releases/latest) → *Extensions → Add → File*.
+
+It runs sandboxed in Hostwerk – it only gets the permissions it lists, and Hostwerk shows them before installing.
 
 ## Permissions
 
@@ -32,4 +44,6 @@ Other extensions may add tabs to its page (`allowExtensions`).
 
 Logic in `page/lib.js` (no DOM), tests: `node --test tests/*.test.js`. Check: `node check.js . --strict` (Hostwerk SDK).
 
-License: MIT
+## License
+
+MIT
