@@ -2,7 +2,7 @@
 
 # Speicher je Dienst
 
-> **Aufgegangen in „Laufwerke“ (Erweiterung `disk-health` 2.0):** Die Belegung je Dienst ist jetzt der Teil „Belegung“ unter System → Laufwerke. Hostwerk installiert „Laufwerke“ von selbst, übernimmt den Verlauf und entfernt diese Erweiterung. Hier gibt es keine neuen Fassungen mehr.
+> **Aufgegangen in „Laufwerke“ (Erweiterung `disk-health` 2.0):** Die Belegung je Dienst ist jetzt der Teil „Belegung“ unter System → Leistung → Laufwerke. Hostwerk installiert „Laufwerke“ von selbst, übernimmt den Verlauf und entfernt diese Erweiterung. Neue Fassungen gibt es hier nur noch, wenn sich Hostwerk ändert.
 
 Wie viel Platz jeder Dienst belegt – Daten, Sicherungen, Projekte – und wie voll das Laufwerk ist. Mit Kachel für die Übersicht.
 
@@ -12,7 +12,7 @@ Wie viel Platz jeder Dienst belegt – Daten, Sicherungen, Projekte – und wie 
 
 ## Was sie kann
 
-Eine Seite unter System → Speicherplatz und eine Kachel für die Übersicht, im Design von Hostwerk, auf Deutsch und Englisch.
+Ein Abschnitt unter System → Leistung → Speicherplatz (ältere Hostwerk: System → Speicherplatz) und eine Kachel für die Übersicht, im Design von Hostwerk, auf Deutsch und Englisch.
 
 - Jeder Dienst mit Größe, Anteil am Platz aller Dienste und seinen Teilen (Server, Sicherungen, Daten …)
 - Laufwerksbalken mit Warnstufen ab 80 % und 90 %
@@ -31,7 +31,7 @@ Sie läuft abgeschottet in Hostwerk – sie bekommt nur die Rechte, die sie nenn
 
 ## Rechte
 
-**Wo:** System → Speicherplatz und Übersichtskachel – seit 1.4.0 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
+**Wo:** System → Leistung → Speicherplatz (Hostwerk vor SDK 3.12: System → Speicherplatz) und Übersichtskachel – seit 1.4.0 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
 
 | Recht | Wofür |
 |---|---|

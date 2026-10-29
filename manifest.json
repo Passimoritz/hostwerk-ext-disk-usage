@@ -36,19 +36,32 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.5.0",
+  "version": "1.6.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-disk-usage",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
   "hostwerk": ">=2.9.0",
+  "sdkVersion": "3.12",
   "allowExtensions": {
     "*": [
       "tabs"
     ]
   },
   "contributes": {
+    "sections": [
+      {
+        "id": "usage",
+        "title": {
+          "de": "Speicherplatz",
+          "en": "Disk usage"
+        },
+        "icon": "pie-chart",
+        "on": "system.leistung",
+        "file": "page/index.html"
+      }
+    ],
     "tabs": [
       {
         "id": "usage",
@@ -58,7 +71,8 @@
         },
         "icon": "pie-chart",
         "on": "area:system",
-        "file": "page/index.html"
+        "file": "page/index.html",
+        "fallback": true
       }
     ]
   }

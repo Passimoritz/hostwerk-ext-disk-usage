@@ -1,3 +1,8 @@
+## 1.6.0
+
+- Backups and System rebuilt (SDK 3.12): the disk usage is a section in System → Performance (#/system/leistung/usage); older Hostwerk versions keep version 1.5 with the tab System → Disk usage. / Sicherungen und System neu (SDK 3.12): Der Speicherplatz ist ein Abschnitt unter System → Leistung (#/system/leistung/usage); ältere Hostwerk-Versionen behalten Version 1.5 mit dem Reiter System → Speicherplatz.
+- The backups of a database lead to Backups → Backups (#/sicherungen/staende). / Die Sicherungen einer Datenbank führen zu Sicherungen → Stände (#/sicherungen/staende).
+
 ## 1.5.0
 
 - While Hostwerk counts the sizes, the page shows Hostwerk’s loading line instead of a lone line of text; the list rises one after another the first time (SDK 3.6). / Während Hostwerk die Größen zählt, zeigt die Seite Hostwerks Lade-Linie statt einer einzelnen Textzeile; die Liste erscheint beim ersten Mal nacheinander (SDK 3.6).

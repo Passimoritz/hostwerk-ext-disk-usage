@@ -51,7 +51,7 @@
       case 'minecraft': return safe ? `/mc/${id}/${backups ? 'backups' : 'files'}` : '/mc';
       case 'web': return safe ? `/web/${id}` : '/web';
       case 'app': return safe ? `/apps/${id}` : '/projects';
-      case 'db': return backups ? '/sicherungen' : safe ? `/dbs/${id}` : '/dbs';
+      case 'db': return backups ? '/sicherungen/staende' : safe ? `/dbs/${id}` : '/dbs';
       // Spiele-Server (Erweiterung „Spiele-Server“) und Docker-Volumes – seit Hostwerk 3.0 in der Zählung
       case 'game': return safe ? `/spiele/${id}` : '/ext/game-servers';
       case 'docker': return s.app && /^[\w-]+$/.test(String(s.app)) ? `/apps/${s.app}` : '/apps';

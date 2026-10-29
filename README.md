@@ -2,7 +2,7 @@
 
 # Storage per service
 
-> **Merged into “Drives” (extension `disk-health` 2.0):** the space per service is now the part “Used space” under System → Drives. Hostwerk installs “Drives” by itself, takes the history over and removes this extension. There are no new versions here.
+> **Merged into “Drives” (extension `disk-health` 2.0):** the space per service is now the part “Used space” under System → Performance → Drives. Hostwerk installs “Drives” by itself, takes the history over and removes this extension. Versions here only follow changes in Hostwerk.
 
 How much space each service takes – data, backups, projects – and how full the drive is. With a dashboard tile.
 
@@ -12,7 +12,7 @@ How much space each service takes – data, backups, projects – and how full t
 
 ## What it does
 
-A page under System → Disk usage and a dashboard tile, in Hostwerk's own design, German and English.
+A section under System → Performance → Disk usage (older Hostwerk: System → Disk usage) and a dashboard tile, in Hostwerk's own design, German and English.
 
 - Every service with its size, its share of the space of all services and its parts (server, backups, data …)
 - Drive bar with warning levels from 80 % and 90 %
@@ -31,7 +31,7 @@ It runs sandboxed in Hostwerk – it only gets the permissions it lists, and Hos
 
 ## Permissions
 
-**Where:** System → Disk usage and the dashboard tile – no own sidebar entry since 1.4.0; the full page stays under Extensions → Open
+**Where:** System → Performance → Disk usage (Hostwerk before SDK 3.12: System → Disk usage) and the dashboard tile – no own sidebar entry since 1.4.0; the full page stays under Extensions → Open
 
 | Permission | Why |
 |---|---|
